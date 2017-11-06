@@ -1,0 +1,49 @@
+openapi: openapi 3.0.0
+
+paths:
+  '/test':
+    parameters:
+      - name: testparam
+        in: query
+        required: false
+        schema:
+          type: string
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Test2'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Test'
+            application/xml:
+              schema:
+                type: string
+
+components:
+  schemas:
+    Test:
+      type: object
+      properties:
+        testprop:
+          type: dateTime
+    Test2:
+      type: object
+      properties:
+        testprop:
+          type: string
+

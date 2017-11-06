@@ -1,0 +1,25 @@
+{
+  "name": "openapi2schema",
+  "version": "0.1.0",
+  "description": "Convert OpenAPI 3.0 document into a tree of request/response JSON Schemas",
+  "main": "lib/openapi2schema.js",
+  "scripts": {
+    "test": "./node_modules/.bin/tape test/**/*.test.js | ./node_modules/.bin/tap-spec"
+  },
+  "bin": {
+    "openapi2schema": "./index.js"
+  },
+  "repository": "github:mikunn/openapi2schema",
+  "author": "Mika Kunnas",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.11.0",
+    "json-schema-merge-allof": "^0.5.8",
+    "json-schema-ref-parser": "^4.0.3",
+    "openapi-schema-to-json-schema": "^0.2.5"
+  },
+  "devDependencies": {
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  }
+}

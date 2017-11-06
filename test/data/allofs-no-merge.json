@@ -1,0 +1,48 @@
+{
+	"/test": {
+    "get": {
+      "responses": {
+        "200": {
+          "allOf": [
+            {
+              "type": "object",
+              "properties": {
+                "test1": {
+                  "type": "string"
+                },
+                "test2": {
+                  "type": "integer"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "test3": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            },
+            {
+              "allOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "test4": {
+                      "type": "string"
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "$schema": "http://json-schema.org/draft-04/schema#"
+        }
+      }
+    }
+  }
+}
+

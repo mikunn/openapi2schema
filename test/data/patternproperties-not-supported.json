@@ -1,0 +1,25 @@
+{
+	"/test": {
+    "get": {
+      "responses": {
+        "200": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+          "type": "object",
+          "properties": {
+						"test": {
+							"type": "integer"
+						}
+          },
+					"additionalProperties": {
+						"type": "string"
+					},
+					"x-patternProperties": {
+						"^[A-Z]$": {
+							"type": "string"
+						}
+					}
+        }
+      }
+    }
+  }
+}
