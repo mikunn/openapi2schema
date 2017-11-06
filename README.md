@@ -3,6 +3,20 @@ Convert OpenAPI 3.0 document into a tree of request/response JSON Schemas. This 
 
 You can use it as a CLI tool or a library. Create your own CLI around the library if the standard one doesn't suit your needs.
 
+## Installation
+
+For library
+
+```
+npm install --save openapi2schema
+```
+
+For CLI
+
+```
+npm install -g openapi2schema
+```
+
 ## Example
 
 Let's say we have an OpenAPI 3.0 file called `spec.yaml` that looks like the following
