@@ -1,6 +1,6 @@
 {
   "name": "openapi2schema",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert OpenAPI 3.0 document into a tree of request/response JSON Schemas",
   "main": "lib/openapi2schema.js",
   "scripts": {
