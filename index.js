@@ -11,7 +11,7 @@ program
 	.option('-p, --pretty-print', 'Enable pretty printing')
 	.option('-d, --date-to-datetime', 'Convert dates to datetimes')
 	.option('--pattern-properties', 'Support patternProperties with x-patternProperties')
-	.option('--no-responses', 'Don\'t include responses')
+	.option('--no-responses', 'Exclude responses')
 	.option('--merge-allof', 'Merge allOfs')
 	.parse(process.argv)
 ;

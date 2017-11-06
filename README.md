@@ -118,7 +118,7 @@ $ openapi2schema --help
     -p, --pretty-print      Enable pretty printing
     -d, --date-to-datetime  Convert dates to datetimes
     --pattern-properties    Support patternProperties with x-patternProperties
-    --no-responses          Don't include responses
+    --no-responses          Exclude responses
     --merge-allof           Merge allOfs
     -h, --help              output usage information
 ```
