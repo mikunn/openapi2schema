@@ -206,7 +206,7 @@ We will use the CLI tool on that:
 
 ```bash
 
-$ openapi2schema -i test.yaml -p --pattern-properties
+$ openapi2schema -i pattern.yaml -p --pattern-properties
 
 {
   "/data": {
