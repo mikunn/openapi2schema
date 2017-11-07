@@ -31,7 +31,7 @@ test('do not include responses', function(assert) {
 	spec = helpers.specPath('basic-spec.yaml');
 
 	openapi2schema(spec, {includeResponses: false}, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });
@@ -79,7 +79,7 @@ test('do not include request bodies', function(assert) {
 	spec = helpers.specPath('basic-spec.yaml');
 
 	openapi2schema(spec, {includeBodies: false}, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });

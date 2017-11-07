@@ -56,7 +56,7 @@ test('basic spec', function(assert) {
 	spec = helpers.specPath('basic-spec.yaml');
 
 	openapi2schema(spec, {}, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });
@@ -72,7 +72,7 @@ test('petstore spec', function(assert) {
 	spec = helpers.specPath('petstore-spec.yaml');
 
 	openapi2schema(spec, {}, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });
@@ -88,20 +88,16 @@ test('test without options parameter', function(assert) {
 	spec = helpers.specPath('petstore-spec.yaml');
 
 	openapi2schema(spec, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });
 
 test('test without callback', function(assert) {
-	var spec
-		, expected
-	;
+	var spec;
 	
 	assert.plan(1);
 
-	expected = helpers.parseJSON('petstore-no-options-result.json');
 	spec = helpers.specPath('petstore-spec.yaml');
-
-	assert.throws(function() {openapi2schema(spec)});
+	assert.throws(function() {openapi2schema(spec);});
 });

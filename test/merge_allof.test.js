@@ -15,7 +15,7 @@ test('merging allOfs', function(assert) {
 	expected = helpers.parseJSON('allofs-merged.json');
 
 	openapi2schema(spec, {mergeAllOf: true}, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });
@@ -31,7 +31,7 @@ test('not merging allOfs', function(assert) {
 	expected = helpers.parseJSON('allofs-no-merge.json');
 
 	openapi2schema(spec, {mergeAllOf: false}, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });
@@ -47,7 +47,7 @@ test('not merging allOfs by default', function(assert) {
 	expected = helpers.parseJSON('allofs-no-merge.json');
 
 	openapi2schema(spec, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });

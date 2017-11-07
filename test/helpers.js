@@ -5,7 +5,7 @@ var fs = require('fs')
 module.exports = {
 	parseJSON: parseJSON,
 	specPath: specPath
-}
+};
 
 function parseJSON(file) {
 	var path = join(__dirname, 'data', file);

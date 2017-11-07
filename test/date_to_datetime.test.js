@@ -33,7 +33,7 @@ test('converting date to datetime', function(assert) {
 	spec = helpers.specPath('date-spec.yaml');
 
 	openapi2schema(spec, {dateToDateTime: true}, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });
@@ -67,7 +67,7 @@ test('do not convert date to datetime by default', function(assert) {
 	spec = helpers.specPath('date-spec.yaml');
 
 	openapi2schema(spec, function(err, result) {
-		assert.equal(err, null, 'no error')
+		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
 });

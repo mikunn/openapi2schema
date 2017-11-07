@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/*eslint no-console: "off"*/
+
 var program = require('commander')
 	, openapi2schema = require('./lib/openapi2schema')
 ;
@@ -32,7 +34,7 @@ openapi2schema(program.input, options, function(err, res) {
 });
 
 function print(data) {
-	spaces = program.prettyPrint ? 2 : null;
+	var spaces = program.prettyPrint ? 2 : null;
 	console.log(JSON.stringify(data, null, spaces));
 }
 
