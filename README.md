@@ -249,4 +249,4 @@ Here we set `x-patternProperties` in the schema, but we also set `additionalProp
 
 Notice also that `additionalProperties` is set to `false`. This is because if we allow additional string properties in the spec file, we would allow any property of type string. By setting it to `false`, we restrict additional properties to those defined by the pattern.
 
-If we allow pattern properties of primitive types (string, numeric types, boolean) in the spec, `additionalProperties` will be set to `false` if that type is found in `patternProperties`.
+If `additionalProperties` is an object, it will be converted to `false` if the `additionalProperties` object is deeply equal to one of the pattern objects in `patternProperties`.
