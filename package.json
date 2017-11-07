@@ -16,7 +16,7 @@
     "commander": "^2.11.0",
     "json-schema-merge-allof": "^0.5.8",
     "json-schema-ref-parser": "^4.0.3",
-    "openapi-schema-to-json-schema": "^0.2.5"
+    "openapi-schema-to-json-schema": "^1.0.0"
   },
   "devDependencies": {
     "tap-spec": "^4.1.1",
