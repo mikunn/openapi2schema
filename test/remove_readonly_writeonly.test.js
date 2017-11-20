@@ -4,17 +4,17 @@ var test = require('tape')
 
 ;
 
-test('merging allOfs', function(assert) {
+test('remove read-only and write-only properties', function(assert) {
 	var spec
 		, expected
 	;
 	
 	assert.plan(2);
 
-	spec = helpers.specPath('allofs-spec.yaml');
-	expected = helpers.parseJSON('allofs-merged.json');
+	expected = helpers.parseJSON('read-write-only.json');
+	spec = helpers.specPath('read-write-only-spec.yaml');
 
-	openapi2schema(spec, {mergeAllOf: true}, function(err, result) {
+	openapi2schema(spec, function(err, result) {
 		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});

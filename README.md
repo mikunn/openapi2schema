@@ -120,8 +120,7 @@ The created JSON consists of the defined paths, in this case only `/data`, on th
 The CLI tool will print the created JSON to stdout.
 
 ```bash
-
-$ openapi2schema --help
+$ openapi2schema -h
 
   Usage: openapi2schema [options]
 
@@ -129,17 +128,20 @@ $ openapi2schema --help
   Options:
 
     -i, --input [filepath]  OpenAPI file
+    -c, --clean             Clean output from extra methods and endpoints
     -p, --pretty-print      Enable pretty printing
     -d, --date-to-datetime  Convert dates to datetimes
     --pattern-properties    Support patternProperties with x-patternProperties
     --no-responses          Exclude responses
-    --merge-allof           Merge allOfs
-    -h, --help              output usage information
+    -h, --help              output usage information openapi2schema --help
 ```
 
 Let's walk through the options:
 * `-i`: path to the OpenAPI file (or root file if it consists of many files)
 * `-p`: pretty prints the JSON rather than outputting everything in a single line
+* `-c`:
+  * cleans the output so that it won't have any methods or endpoints that don't have content 
+  * use with `--no-responses` flag to clean empty `get` methods from the result (or the whole path if it contains only an empty `get` method
 * `-d`
   * if you have types with `format: date`, change these to `format: date-time`
   * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info
@@ -147,7 +149,6 @@ Let's walk through the options:
   * Setting this option changes `x-patternProperties` to `patternProperties` to enable validation against a pattern. If you have `additionalProperties` set as well in the same schema, this might do a bit of juggling on that. Scroll down for an example.
   * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info
 * `--no-responses`: include only requests in the created JSON
-* `--merge-allof` will merge (and remove) allOf's to condence the JSON if possible
 
 ### Library
 
@@ -175,8 +176,8 @@ This prints out the same structure as in the main CLI example, but as an object 
     * includes request bodies in the result structure
   * `includeResponses` (boolean, default: `true`)
     * includes response bodies in the result structure
-  * `mergeAllOf` (boolean, default: `false`)
-    * will merge (and remove) allOfs to condence the JSON if possible
+  * `clean` (boolean, default: `false`)
+    * cleans the output from empty methods/endpoints
   * `dateToDateTime` (boolean, default: `false`)
     * if you have types with `format: date`, change these to `format: date-time`
     * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info

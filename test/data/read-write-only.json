@@ -1,0 +1,50 @@
+{
+	"/readWriteOnly": {
+		"get": {
+			"responses": {
+				"200": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+					"type": "object",
+					"required": ["readonly"],
+					"properties": {
+						"readonly": {
+							"type": "string"
+						},
+						"both": {
+							"type": "string"
+						}
+					}
+				}
+			}			
+		},
+		"post": {
+			"body": {
+				"$schema": "http://json-schema.org/draft-04/schema#",
+				"type": "object",
+				"required": ["writeonly"],
+				"properties": {
+					"writeonly": {
+						"type": "string"
+					},
+					"both": {
+						"type": "string"
+					}
+				}
+			},
+			"responses": {
+				"201": {
+          "$schema": "http://json-schema.org/draft-04/schema#",
+					"type": "object",
+					"properties": {
+						"readonly": {
+							"type": "string"
+						},
+						"both": {
+							"type": "string"
+						}
+					}
+				}
+			}			
+		}
+	}
+}

@@ -1,0 +1,63 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Read-Write Only Spec 
+
+paths:
+  /readWriteOnly:
+    get:
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadWriteOnly'
+
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadWriteOnly'
+        
+      responses:
+        201:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReadWriteOnly2'
+
+components:
+  schemas:
+    ReadWriteOnly:
+      type: object
+      required:
+        - readonly
+        - writeonly
+      properties:
+        readonly:
+          type: string
+          readOnly: true
+        writeonly:
+          type: string
+          writeOnly: true
+        both:
+          type: string
+
+    ReadWriteOnly2:
+      allOf:
+        - type: object
+          properties:
+            readonly:
+              type: string
+              readOnly: true
+            writeonly:
+              type: string
+              writeOnly: true
+            both:
+              type: string
+        - required:
+          - writeonly
