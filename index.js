@@ -14,13 +14,11 @@ program
 	.option('-d, --date-to-datetime', 'Convert dates to datetimes')
 	.option('--pattern-properties', 'Support patternProperties with x-patternProperties')
 	.option('--no-responses', 'Exclude responses')
-	.option('--merge-allof', 'Merge allOfs')
 	.parse(process.argv)
 ;
 
 options = {
 	'includeResponses': program.responses || false,
-	'mergeAllOf': program.mergeAllof || false,
 	'dateToDateTime': program.dateToDateTime || false,
 	'supportPatternProperties': program.patternProperties || false
 };
