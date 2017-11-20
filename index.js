@@ -10,6 +10,7 @@ var options;
 
 program
 	.option('-i, --input [filepath]', 'OpenAPI file')
+	.option('-c, --clean', 'Clean output from extra methods and endpoints')
 	.option('-p, --pretty-print', 'Enable pretty printing')
 	.option('-d, --date-to-datetime', 'Convert dates to datetimes')
 	.option('--pattern-properties', 'Support patternProperties with x-patternProperties')
@@ -20,7 +21,8 @@ program
 options = {
 	'includeResponses': program.responses || false,
 	'dateToDateTime': program.dateToDateTime || false,
-	'supportPatternProperties': program.patternProperties || false
+	'supportPatternProperties': program.patternProperties || false,
+	'clean': program.clean || false
 };
 
 openapi2schema(program.input, options, function(err, res) {
