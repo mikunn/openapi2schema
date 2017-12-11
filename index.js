@@ -9,7 +9,7 @@ var program = require('commander')
 var options;
 
 program
-	.option('-i, --input [filepath]', 'OpenAPI file')
+	.option('-i, --input <filepath>', 'OpenAPI file')
 	.option('-c, --clean', 'Clean output from extra methods and endpoints')
 	.option('-p, --pretty-print', 'Enable pretty printing')
 	.option('-d, --date-to-datetime', 'Convert dates to datetimes')
@@ -17,6 +17,16 @@ program
 	.option('--no-responses', 'Exclude responses')
 	.parse(process.argv)
 ;
+
+if (! process.argv.slice(2).length) {
+	program.help();
+}
+
+if (! program.input) {
+	console.error('Option -i, --input <filepath> required. Display help with -h.');
+	process.exit(1);
+}
+
 
 options = {
 	'includeResponses': program.responses || false,
