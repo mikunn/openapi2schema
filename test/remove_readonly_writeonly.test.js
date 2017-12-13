@@ -9,7 +9,7 @@ test('remove read-only and write-only properties', function(assert) {
 		, expected
 	;
 	
-	assert.plan(2);
+	assert.plan(4);
 
 	expected = helpers.parseJSON('read-write-only.json');
 	spec = helpers.specPath('read-write-only-spec.yaml');
@@ -18,4 +18,8 @@ test('remove read-only and write-only properties', function(assert) {
 		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
+
+	var result = openapi2schema(spec, { async: false });
+	assert.equal(result instanceof Error, false, 'no error (sync)');
+	assert.deepEqual(result, expected, 'structure ok (sync)');
 });

@@ -9,7 +9,7 @@ test('do not include responses', function(assert) {
 		, expected
 	;
 	
-	assert.plan(2);
+	assert.plan(4);
 
 	expected = {
 		'/test': {
@@ -34,6 +34,10 @@ test('do not include responses', function(assert) {
 		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
+	
+	var result = openapi2schema(spec, { includeResponses: false, async: false });
+	assert.equal(result instanceof Error, false, 'no error (sync)');
+	assert.deepEqual(result, expected, 'structure ok (sync)');
 });
 
 test('do not include request bodies', function(assert) {
@@ -41,7 +45,7 @@ test('do not include request bodies', function(assert) {
 		, expected
 	;
 	
-	assert.plan(2);
+	assert.plan(4);
 
 	expected = {
 		'/test': {
@@ -82,4 +86,8 @@ test('do not include request bodies', function(assert) {
 		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
+
+	var result = openapi2schema(spec, { includeBodies: false, async: false });
+	assert.equal(result instanceof Error, false, 'no error (sync)');
+	assert.deepEqual(result, expected, 'structure ok (sync)');
 });
