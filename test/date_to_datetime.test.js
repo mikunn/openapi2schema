@@ -9,7 +9,7 @@ test('converting date to datetime', function(assert) {
 		, expected
 	;
 	
-	assert.plan(2);
+	assert.plan(4);
 
 	expected = {
 		'/test': {
@@ -36,6 +36,10 @@ test('converting date to datetime', function(assert) {
 		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
+
+	var result = openapi2schema(spec, {dateToDateTime: true, async: false});
+	assert.equal(result instanceof Error, false, 'no error (sync)');
+	assert.deepEqual(result, expected, 'structure ok (sync)');
 });
 
 test('do not convert date to datetime by default', function(assert) {
@@ -43,7 +47,7 @@ test('do not convert date to datetime by default', function(assert) {
 		, expected
 	;
 	
-	assert.plan(2);
+	assert.plan(4);
 
 	expected = {
 		'/test': {
@@ -70,4 +74,8 @@ test('do not convert date to datetime by default', function(assert) {
 		assert.equal(err, null, 'no error');
 		assert.deepEqual(result, expected, 'structure ok');
 	});
+
+	var result = openapi2schema(spec, { async: false });
+	assert.equal(result instanceof Error, false, 'no error (sync)');
+	assert.deepEqual(result, expected, 'structure ok (sync)');
 });

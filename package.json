@@ -16,6 +16,8 @@
     "commander": "^2.11.0",
     "json-schema-merge-allof": "^0.6.0",
     "json-schema-ref-parser": "^4.0.3",
+    "json-schema-deref-sync": "^0.4.0",
+    "js-yaml": "^3.10.0",
     "openapi-schema-to-json-schema": "^1.2.0"
   },
   "devDependencies": {

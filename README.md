@@ -157,17 +157,25 @@ Let's start with an example:
 ```js
 var openapi2schema = require('openapi2schema');
 
+// Async with callback
 openapi2schema('test.yaml', function(err, result) {
   if (err) {
     console.log(err);
   }
   console.log(result);
 });
+
+// Sync with return value
+var result = openapi2schema('test.yaml', { async: false });
+if (result instanceof Error) {
+  console.log(result);
+}
+console.log(result);
 ```
 
 This prints out the same structure as in the main CLI example, but as an object instead of JSON.
 
-#### openapi2schema(spec, [options,] callback)
+#### openapi2schema(spec, [options,] [callback])
 
 * `spec` (required)
   * either a path to OpenAPI spec file or an object
@@ -184,7 +192,9 @@ This prints out the same structure as in the main CLI example, but as an object 
   * `supportPatternProperties`:
     * enable regex pattern based properties with `x-patternProperties`
     * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info
-* `callback` (required)
+  * `async` (boolean, default: `true`)
+    * controls if function called sync with return value or async with callback
+* `callback` (required at default, not required if async is false)
   * a function that will receive the result
 
 ### Using patternProperties
