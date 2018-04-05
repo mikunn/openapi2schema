@@ -40,7 +40,8 @@ components:
       type: object
       properties:
         testprop:
-          type: dateTime
+          type: string
+          format: date-time
     Test2:
       type: object
       properties:
