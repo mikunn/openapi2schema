@@ -160,7 +160,7 @@ var openapi2schema = require('openapi2schema');
 // Async with callback
 openapi2schema('test.yaml', function(err, result) {
   if (err) {
-    console.log(err);
+    return console.error(err);
   }
   console.log(result);
 });
@@ -168,9 +168,10 @@ openapi2schema('test.yaml', function(err, result) {
 // Sync with return value
 var result = openapi2schema('test.yaml', { async: false });
 if (result instanceof Error) {
+  console.error(result);
+} else {
   console.log(result);
 }
-console.log(result);
 ```
 
 This prints out the same structure as in the main CLI example, but as an object instead of JSON.
