@@ -37,7 +37,7 @@ options = {
 
 openapi2schema(program.input, options, function(err, res) {
 	if (err) {
-		return console.log(err);
+		return console.error(err);
 	}
 
 	print(res);
