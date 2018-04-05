@@ -1,0 +1,39 @@
+openapi: 3.0.0
+
+info:
+  version: 1.0.0
+  title: Invalid Type Request Spec
+
+paths:
+  '/ok_type':
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OKType'
+
+  '/invalid/type':
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OKType'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidType'
+
+components:
+  schemas:
+    OKType:
+      type: string
+    InvalidType:
+      type: someinvalidtype
