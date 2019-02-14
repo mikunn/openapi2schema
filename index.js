@@ -15,6 +15,7 @@ program
 	.option('-d, --date-to-datetime', 'Convert dates to datetimes')
 	.option('--pattern-properties', 'Support patternProperties with x-patternProperties')
 	.option('--no-responses', 'Exclude responses')
+	.option('--parameters', 'Include parameters')
 	.parse(process.argv)
 ;
 
@@ -30,6 +31,7 @@ if (! program.input) {
 
 options = {
 	'includeResponses': program.responses || false,
+	'includeParameters': program.parameters || false,
 	'dateToDateTime': program.dateToDateTime || false,
 	'supportPatternProperties': program.patternProperties || false,
 	'clean': program.clean || false

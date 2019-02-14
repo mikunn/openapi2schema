@@ -111,7 +111,7 @@ $ openapi2schema -i spec.yaml -p
 
 ```
 
-The created JSON consists of the defined paths, in this case only `/data`, on the root level. Each path consists of `body` and/or `responses` object. `body` has the converted schema of the request body and `requests` has the response body schemas. Parameters are not currently supported.
+The created JSON consists of the defined paths, in this case only `/data`, on the root level. Each path consists of `body`, `responses` and `parameters` objects. `body` has the converted schema of the request body, `requests` has the response body schemas and `parameters` has the converted schemas of the request parameters.
 
 ## Usage
 
@@ -133,6 +133,7 @@ $ openapi2schema -h
     -d, --date-to-datetime  Convert dates to datetimes
     --pattern-properties    Support patternProperties with x-patternProperties
     --no-responses          Exclude responses
+    --parameters            Include parameters
     -h, --help              output usage information openapi2schema --help
 ```
 
@@ -149,6 +150,7 @@ Let's walk through the options:
   * Setting this option changes `x-patternProperties` to `patternProperties` to enable validation against a pattern. If you have `additionalProperties` set as well in the same schema, this might do a bit of juggling on that. Scroll down for an example.
   * this parameter goes directly to [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema), so check out its documentation for more info
 * `--no-responses`: include only requests in the created JSON
+* `--parameters`: include parameters in the created JSON
 
 ### Library
 
@@ -185,6 +187,8 @@ This prints out the same structure as in the main CLI example, but as an object 
     * includes request bodies in the result structure
   * `includeResponses` (boolean, default: `true`)
     * includes response bodies in the result structure
+  * `includeParameters` (boolean, default: `false`)
+    * includes parameters in the result structure
   * `clean` (boolean, default: `false`)
     * cleans the output from empty methods/endpoints
   * `dateToDateTime` (boolean, default: `false`)
