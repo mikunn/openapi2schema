@@ -1,3 +1,5 @@
+**THIS PACKAGE IS NO LONGER MAINTAINED. LOOKING FOR A NEW MAINTAINER.**
+
 # openapi2schema
 Convert OpenAPI 3.0 document into a tree of request/response JSON Schemas. This builds on [openapi-schema-to-json-schema](https://www.npmjs.com/package/openapi-schema-to-json-schema) to enable request/response validation.
 
