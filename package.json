@@ -18,8 +18,7 @@
     "commander": "^11.0.0",
     "js-yaml": "^4.1.0",
     "json-schema-deref-sync": "^0.14.0",
-    "json-schema-merge-allof": "^0.8.1",
-    "npm-check-updates": "^16.10.17"
+    "json-schema-merge-allof": "^0.8.1"
   },
   "devDependencies": {
     "tap-spec": "^5.0.0",
